@@ -5,6 +5,7 @@ import 'package:yabi_test/utils/device_utils.dart';
 import 'package:yabi_test/widgets/add_guest_dialog.dart';
 import 'package:yabi_test/widgets/contact_tile.dart';
 import 'package:yabi_test/widgets/edit_guest_dialog.dart';
+import 'package:yabi_test/widgets/no_guests_found.dart';
 
 import 'ui/primary_button.dart';
 
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFEFF1FA),
       appBar: AppBar(
         backgroundColor: const Color(0xFF2E2F45),
@@ -141,19 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 )
-              : Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
-                  child: Column(
-                    children: [
-                      const Text('No Guests Were Invited'),
-                      const Text('Please Invite New Guests To Start Working'),
-                      Image.asset(
-                        'assets/noone.png',
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ],
-                  ),
-                )
+              : const NoGuestsFound()
         ],
       ),
     );
